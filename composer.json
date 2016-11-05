@@ -1,0 +1,14 @@
+{
+	"name": "salamium/testinium",
+	"require": {
+		"nette/di": "^2.3"
+	},
+	"require-dev": {
+		"tracy/tracy": "^2.3"
+	},
+	"autoload": {
+		"files": [
+			"src/development.php"
+		]
+	}
+}
