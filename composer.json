@@ -6,7 +6,8 @@
 	},
 	"autoload": {
 		"files": [
-			"src/development.php"
+			"src/development.php",
+			"src/File.php"
 		]
 	}
 }
