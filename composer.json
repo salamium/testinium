@@ -1,14 +1,16 @@
 {
 	"name": "salamium/testinium",
 	"require": {
-		"nette/tester": "^1.7",
-		"tracy/tracy": "^2.4",
-		"nette/http": "^2.4"
+		"nette/http": "^2.0",
+		"nette/utils": "^2.0",
+		"nette/tester": "^1.6",
+		"tracy/tracy": "^2.0"
 	},
 	"autoload": {
 		"files": [
 			"src/development.php",
 			"src/File.php",
+			"src/FileUploadFactory.php",
 			"src/HttpRequestFactory.php"
 		]
 	}
