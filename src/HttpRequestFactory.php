@@ -31,15 +31,10 @@ class HttpRequestFactory
 	/** @var string|NULL */
 	private $remoteHost;
 
-	public function __construct()
-	{
-		$this->reset();
-	}
-
 	public function setHost($host)
 	{
 		if (!self::checkHost($host)) {
-			throw new \InvalidArgumentException('Host must start with double slash or http.');
+			throw new \InvalidArgumentException('Host must start with double slash or http[s].');
 		}
 		$this->host = $host;
 		return $this;
@@ -48,6 +43,7 @@ class HttpRequestFactory
 	public function setPost(array $post)
 	{
 		$this->post = $post;
+		$this->setMethod(Http\IRequest::POST);
 		return $this;
 	}
 
@@ -94,18 +90,7 @@ class HttpRequestFactory
 			$url = $this->host . '/' . ltrim($url, '/');
 		}
 
-		$request = new Http\Request(new Http\UrlScript($url), $query, $this->post, $this->files, $this->cookie, $this->headers, $this->method);
-		$this->reset();
-		return $request;
-	}
-
-	protected function reset()
-	{
-		$this->cookie = $this->files = $this->headers = $this->post = NULL;
-		$this->host = '//www.example.com';
-		$this->remoteAddress = '19.86.30.12';
-		$this->remoteHost = '1.server';
-		$this->method = Http\IRequest::GET;
+		return new Http\Request(new Http\UrlScript($url), $query, $this->post, $this->files, $this->cookie, $this->headers, $this->method, $this->remoteAddress, $this->remoteHost);
 	}
 
 	private static function checkHost($host)
