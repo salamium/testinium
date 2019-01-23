@@ -4,7 +4,7 @@
 		"nette/http": ">=2.0",
 		"nette/utils": ">=2.0",
 		"nette/tester": ">=1.6",
-		"tracy/tracy": "=>2.0"
+		"tracy/tracy": ">=2.0"
 	},
 	"autoload": {
 		"files": [
@@ -13,5 +13,6 @@
 			"src/FileUploadFactory.php",
 			"src/HttpRequestFactory.php"
 		]
-	}
+	},
+	"minimum-stability": "dev"
 }
